@@ -18,8 +18,8 @@ Universal Directx11 Hook Project for all directx11 - directx10 applications with
 ## Authors
 
 * **Rebzzel** - *Initial work* - [Rebzzel](https://github.com/Rebzzel)
-* **Sh0ckFR** - *Updated version with ImGui* - [Sh0ckFR](https://github.com/Sh0ckFR)
+* **Sh0ckFR** - *Updated version with ImGui + InputHook* - [Sh0ckFR](https://github.com/Sh0ckFR)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
