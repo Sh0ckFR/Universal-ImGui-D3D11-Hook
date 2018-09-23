@@ -7,8 +7,8 @@ Universal Directx11 Hook Project for all directx11 - directx10 applications with
 
 ## Getting Started
 
-This project is based on https://github.com/Rebzzel/Universal-D3D11-Hook
-To use it, you need to compile it and inject your dll file in an application process.
+- This project is based on https://github.com/Rebzzel/Universal-D3D11-Hook
+- To use it, you need to compile it and inject your dll file in an application process.
 
 ## Built With
 
