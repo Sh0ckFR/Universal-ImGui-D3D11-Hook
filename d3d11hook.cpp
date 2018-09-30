@@ -15,8 +15,8 @@ const int UninjectLibraryKey = VK_DELETE;
 #include "Menu.h"
 #include "InputHook.h"
 
-Menu* menu = new Menu();
-InputHook* inputHook = new InputHook();
+Menu menu = Menu();
+InputHook inputHook = InputHook();
 
 typedef HRESULT(__stdcall *D3D11PresentHook) (IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags);
 typedef void(__stdcall *D3D11DrawIndexedHook) (ID3D11DeviceContext* pContext, UINT IndexCount, UINT StartIndexLocation, INT BaseVertexLocation);
@@ -44,10 +44,10 @@ DWORD_PTR*                         pDeviceContextVTable = nullptr;
 D3D11_HOOK_API void ImplHookDX11_Present(ID3D11Device *device, ID3D11DeviceContext *ctx, IDXGISwapChain *swap_chain)
 {
 	if (GetAsyncKeyState(OpenMenuKey) & 0x1) {
-		menu->IsOpen ? menu->IsOpen = false : menu->IsOpen = true;
+		menu.IsOpen ? menu.IsOpen = false : menu.IsOpen = true;
 	}
 
-	menu->Render();
+	menu.Render();
 }
 
 HRESULT __stdcall PresentHook(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
@@ -57,7 +57,7 @@ HRESULT __stdcall PresentHook(IDXGISwapChain* pSwapChain, UINT SyncInterval, UIN
 		g_pd3dDevice->GetImmediateContext(&g_pd3dContext);
 
 		ImGui_ImplDX11_Init(g_hWnd, g_pd3dDevice, g_pd3dContext);
-		inputHook->Init(g_hWnd);
+		inputHook.Init(g_hWnd);
 	});
 
 	ImplHookDX11_Present(g_pd3dDevice, g_pd3dContext, g_pSwapChain);
@@ -179,7 +179,7 @@ DWORD __stdcall HookDX11_Init()
 	g_pSwapChain->Release();
 
 	ImplHookDX11_Shutdown();
-	inputHook->Remove(g_hWnd);
+	inputHook.Remove(g_hWnd);
 
 	Beep(220, 100);
 
