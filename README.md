@@ -1,3 +1,5 @@
+This repository is deprecated, here is the new repository: https://github.com/Sh0ckFR/Universal-Dear-ImGui-Hook
+
 # Universal-ImGui-D3D11-Hook
 
 Universal Directx11 Hook Project for all directx11 - directx10 applications with ImGui and InputHook included.
